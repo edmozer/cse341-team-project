@@ -24,7 +24,7 @@ export function tripDetailsPage(req, res) {
 
 export async function getTrip(req, res) {
   try {
-    const trip = await getTripById(req.params.tripId);
+    const trip = await getTripById(req.params.id);
     if (!trip) return res.status(404).json({ error: 'Trip not found' });
     const schedules = await getSchedulesByTripId(trip.id);
     return res.status(200).json({ ...trip, schedules });
