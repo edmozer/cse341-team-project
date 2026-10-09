@@ -1,0 +1,26 @@
+.auth-card, .admin-dashboard {
+    width: min(100%, 42rem);
+    margin-block: 3rem;
+    padding: 2rem;
+    border: 1px solid var(--color-border, #d4d4d4);
+    border-radius: 0.5rem;
+    background: white;
+}
+
+.auth-card form {
+    display: grid;
+    gap: 0.65rem;
+    margin-block: 1.5rem;
+}
+
+.auth-card input, .auth-card button {
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.form-error { color: #a31212; }
+.form-success { color: #176b3a; }
+
+.admin-dashboard { width: min(100%, 60rem); }
+.admin-dashboard table { width: 100%; border-collapse: collapse; }
+.admin-dashboard th, .admin-dashboard td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #d4d4d4; }

@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Kizuna Administrator",
+    "email": "admin@kizuna-rail.test",
+    "passwordHash": "$2b$12$0tkSIT3lM6iaxHoE/MUwhe7aweM774GHGtocsHkd0KithfQFmCkG6",
+    "role": "admin"
+  }
+]

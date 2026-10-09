@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<section class="admin-dashboard">
+    <h1><%= title %></h1>
+    <p>Signed in as <strong><%= currentUser.name %></strong>. This page is available only to administrators.</p>
+    <table>
+        <thead><tr><th>Name</th><th>Email</th><th>Role</th></tr></thead>
+        <tbody>
+            <% users.forEach((user) => { %>
+                <tr><td><%= user.name %></td><td><%= user.email %></td><td><%= user.role %></td></tr>
+            <% }) %>
+        </tbody>
+    </table>
+</section>
+<%- include('../partials/footer') %>

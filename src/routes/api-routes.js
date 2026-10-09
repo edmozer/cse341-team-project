@@ -4,8 +4,16 @@ import { getSchedule, getSchedules } from '../controllers/schedules.js';
 import { getTrip, getTrips } from '../controllers/trips.js';
 import { getTrainById } from '../controllers/trains.js';
 import { trainsApi } from './trains.js';
+import { apiAdminDashboard, apiLogin, apiLogout, apiRegister, currentUser } from '../controllers/auth.js';
+import { requireApiAdmin, requireApiAuthentication } from '../middleware/auth.js';
 
 const router = Router();
+
+router.post('/auth/register', apiRegister);
+router.post('/auth/login', apiLogin);
+router.post('/auth/logout', apiLogout);
+router.get('/auth/me', requireApiAuthentication, currentUser);
+router.get('/admin/dashboard', requireApiAdmin, apiAdminDashboard);
 
 /**
  * @openapi

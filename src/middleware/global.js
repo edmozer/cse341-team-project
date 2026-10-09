@@ -7,6 +7,7 @@ const setLocalVariables = (req, res, next) => {
 
     // Make any query parameters available to all templates
     res.locals.query = req.query;
+    res.locals.currentUser = req.session.user || null;
 
     next();
 };

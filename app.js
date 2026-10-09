@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 import swaggerUi from 'swagger-ui-express';
 import Path from 'path';
 import { fileURLToPath } from 'url';
@@ -26,6 +27,17 @@ app.set('views', Path.join(__dirname, 'src/views'));
 // Parse JSON and URL-encoded request bodies.
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(session({
+    name: 'kizuna.sid',
+    secret: process.env.SESSION_SECRET || 'local-development-secret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production'
+    }
+}));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiDocument));
 
 app.use(globalMiddleware);
