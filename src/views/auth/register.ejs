@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<section class="auth-card">
+    <h1><%= title %></h1>
+    <p>Register to save your place on Japan's scenic railways.</p>
+    <% if (typeof error !== 'undefined') { %><p class="form-error"><%= error %></p><% } %>
+    <form method="post" action="/register">
+        <label for="name">Name</label>
+        <input id="name" name="name" value="<%= form.name || '' %>" required minlength="2" autocomplete="name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" value="<%= form.email || '' %>" required autocomplete="email">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required minlength="8" autocomplete="new-password">
+        <button type="submit">Create account</button>
+    </form>
+    <p>Already registered? <a href="/login">Log in.</a></p>
+</section>
+<%- include('../partials/footer') %>
